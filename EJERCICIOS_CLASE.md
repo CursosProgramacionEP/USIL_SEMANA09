@@ -1,9 +1,9 @@
-# Ejercicios de clase · Semana 09
+# Prácticas de clase · Semana 09
 
-Seis ejercicios para practicar en clase: **dos de asociación, dos de agregación y dos de composición**.
-Cada uno tiene un caso, su diagrama UML, los pasos a seguir y la salida que debes obtener.
+Seis prácticas para hacer en clase: **dos de asociación, dos de agregación y dos de composición**.
+Cada una tiene un caso, su diagrama UML, los pasos a seguir y la salida que debes obtener.
 
-**Cómo trabajar cada ejercicio**
+**Cómo trabajar cada práctica**
 
 1. Lee el caso y mira el diagrama UML.
 2. Crea un proyecto (o una carpeta) nuevo en tu IDE.
@@ -15,7 +15,7 @@ Cada uno tiene un caso, su diagrama UML, los pasos a seguir y la salida que debe
 
 # Parte 1 · Asociación
 
-## Ejercicio 1 · Estudiante – Carnet (1 a 1)
+## Práctica 1 · Estudiante – Carnet (1 a 1)
 
 **Caso:** cada estudiante tiene un único carnet. El estudiante conoce su carnet, pero el carnet no sabe de quién es.
 
@@ -52,7 +52,7 @@ Rosa Vega tiene el carnet U2026001 (vence 2028)
 
 ---
 
-## Ejercicio 2 · Playlist – Cancion (1 a muchos)
+## Práctica 2 · Playlist – Cancion (1 a muchos)
 
 **Caso:** una playlist contiene muchas canciones. Queremos listarlas y calcular la duración total.
 
@@ -101,7 +101,7 @@ Duración total: 12 min
 
 > En la agregación **la parte se crea afuera** (en `Main`) y llega al "todo" por parámetro. Si el "todo" desaparece, la parte sigue existiendo.
 
-## Ejercicio 3 · Equipo – Jugador
+## Práctica 3 · Equipo – Jugador
 
 **Caso:** un jugador puede estar en varios equipos (por ejemplo, un préstamo). Los jugadores existen aunque el equipo desaparezca.
 
@@ -143,7 +143,7 @@ El jugador sigue existiendo: Lucía Paredes (#10)
 
 ---
 
-## Ejercicio 4 · Proyecto – Empleado
+## Práctica 4 · Proyecto – Empleado
 
 **Caso:** una empresa asigna empleados a proyectos. Un empleado puede trabajar en varios proyectos y no desaparece si un proyecto se cierra.
 
@@ -192,7 +192,7 @@ Pedro Gil sigue trabajando en la empresa.
 
 > En la composición **el "todo" crea sus partes** (el `new` está dentro del todo). Desde `Main` no se crea ninguna parte. Si el "todo" desaparece, sus partes también.
 
-## Ejercicio 5 · Libro – Capitulo
+## Práctica 5 · Libro – Capitulo
 
 **Caso:** un libro está formado por capítulos. Un capítulo no tiene sentido fuera de su libro.
 
@@ -233,7 +233,7 @@ Cap. 3: Colecciones
 
 ---
 
-## Ejercicio 6 · Videojuego – Nivel
+## Práctica 6 · Videojuego – Nivel
 
 **Caso:** un videojuego se construye con varios niveles. Cada nivel pide más puntos que el anterior (`numero * 100`).
 
