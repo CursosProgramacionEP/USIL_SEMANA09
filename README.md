@@ -6,7 +6,7 @@ Código que acompaña la sesión de **asociación, agregación y composición**.
 Cada carpeta es un proyecto independiente con su propio `Main.java`.
 Estos ejemplos acompañan la **explicación de la clase** (diapositivas *Relación de Asociación*): primero revisa el diagrama y la explicación, y luego el código.
 
-👉 **Ejercicios de clase paso a paso:** [`EJERCICIOS_CLASE.md`](EJERCICIOS_CLASE.md)
+👉 **Prácticas de clase paso a paso:** [`EJERCICIOS_CLASE.md`](EJERCICIOS_CLASE.md)
 
 ## Del diagrama al código (resumen)
 
