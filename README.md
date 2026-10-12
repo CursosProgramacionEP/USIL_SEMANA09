@@ -96,7 +96,7 @@ classDiagram
 
 ## Ejemplo05 · Clase de asociación: `EquipoFutbol`
 
-La relación entre `Futbolista` y `LigaFutbol` guarda información propia (nombre y ciudad del equipo), por eso se convierte en una clase.
+La relación entre `Futbolista` y `LigaFutbol` guarda información propia (nombre y ciudad del equipo), por eso se convierte en una clase. En el diagrama de clases del curso, `EquipoFutbol` se une con una línea punteada a la asociación; aquí se muestra con líneas punteadas hacia las dos clases que relaciona.
 
 ```mermaid
 classDiagram
@@ -112,7 +112,8 @@ classDiagram
         -String ciudad
     }
     Futbolista "*" -- "1" LigaFutbol
-    (Futbolista, LigaFutbol) .. EquipoFutbol
+    EquipoFutbol .. Futbolista
+    EquipoFutbol .. LigaFutbol
 ```
 
 📁 [`Ejemplo05`](Ejemplo05)
