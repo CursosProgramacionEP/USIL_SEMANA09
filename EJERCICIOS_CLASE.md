@@ -5,11 +5,12 @@ Cada una tiene un caso, su diagrama UML, los pasos a seguir y la salida que debe
 
 **Cómo trabajar cada práctica**
 
-1. Lee el caso y mira el diagrama UML.
+1. Lee el caso y mira el diagrama UML: es el **diseño completo** de lo que debes programar (`-` atributo privado, `+` constructor o método público).
 2. Crea un proyecto (o una carpeta) nuevo en tu IDE.
 3. Sigue los pasos en orden: primero la clase "parte", luego la clase "todo", al final el `Main`.
-4. Compara tu salida con la **salida esperada**.
-5. Responde la pregunta final con tus palabras.
+4. Comprueba que tu código tenga **todo lo que muestra el diagrama**: mismos atributos, constructores y métodos.
+5. Compara tu salida con la **salida esperada**.
+6. Responde la pregunta final con tus palabras.
 
 ---
 
@@ -24,11 +25,15 @@ classDiagram
     class Estudiante {
         -String nombre
         -Carnet carnet
-        +mostrar()
+        +Estudiante(String nombre, Carnet carnet)
+        +mostrar() void
     }
     class Carnet {
         -String codigo
         -int anioVencimiento
+        +Carnet(String codigo, int anioVencimiento)
+        +getCodigo() String
+        +getAnioVencimiento() int
     }
     Estudiante "1" --> "1" Carnet : tiene
 ```
@@ -36,7 +41,7 @@ classDiagram
 **Pasos**
 
 1. Crea la clase `Carnet` con los atributos `codigo` (`String`) y `anioVencimiento` (`int`).
-2. Agrega un constructor que reciba ambos valores y sus getters.
+2. Agrega su constructor (recibe ambos valores) y sus getters.
 3. Crea la clase `Estudiante` con el atributo `nombre` y un atributo `carnet` de tipo `Carnet`.
 4. Escribe un constructor que reciba el `nombre` **y el `Carnet`** (la asociación es un atributo).
 5. Escribe el método `mostrar()` que imprima el nombre y los datos del carnet.
@@ -61,16 +66,21 @@ classDiagram
     class Playlist {
         -String nombre
         -ArrayList~Cancion~ canciones
-        +agregarCancion(Cancion c)
+        +Playlist(String nombre)
+        +agregarCancion(Cancion c) void
         +duracionTotal() int
-        +mostrar()
+        +mostrar() void
     }
     class Cancion {
         -String titulo
         -String artista
         -int duracionMin
+        +Cancion(String titulo, String artista, int duracionMin)
+        +getTitulo() String
+        +getArtista() String
+        +getDuracionMin() int
     }
-    Playlist "1" --> "*" Cancion : contiene
+    Playlist "1" --> "*" Cancion : canciones
 ```
 
 **Pasos**
@@ -78,10 +88,11 @@ classDiagram
 1. Crea la clase `Cancion` con `titulo`, `artista` y `duracionMin` (`int`), su constructor y sus getters.
 2. Crea la clase `Playlist` con el atributo `nombre` y una lista: `private ArrayList<Cancion> canciones = new ArrayList<>();`
 3. Recuerda el `import java.util.ArrayList;` al inicio del archivo.
-4. Escribe `agregarCancion(Cancion c)` que agregue la canción a la lista con `add`.
-5. Escribe `duracionTotal()`: recorre la lista con un `for` y suma las duraciones.
-6. Escribe `mostrar()`: imprime el nombre, cada canción numerada (`1.`, `2.`, ...) y la duración total.
-7. En `Main`: crea una playlist, agrégale 3 canciones y llama a `mostrar()`.
+4. Escribe el constructor `Playlist(String nombre)`.
+5. Escribe `agregarCancion(Cancion c)` que agregue la canción a la lista con `add`.
+6. Escribe `duracionTotal()`: recorre la lista con un `for` y suma las duraciones.
+7. Escribe `mostrar()`: imprime el nombre, cada canción numerada (`1.`, `2.`, ...) y la duración total.
+8. En `Main`: crea una playlist, agrégale 3 canciones y llama a `mostrar()`.
 
 **Salida esperada**
 
@@ -110,20 +121,24 @@ classDiagram
     class Equipo {
         -String nombre
         -ArrayList~Jugador~ jugadores
-        +agregarJugador(Jugador j)
-        +mostrar()
+        +Equipo(String nombre)
+        +agregarJugador(Jugador j) void
+        +mostrar() void
     }
     class Jugador {
         -String nombre
         -int numero
+        +Jugador(String nombre, int numero)
+        +getNombre() String
+        +getNumero() int
     }
-    Equipo "*" o-- "*" Jugador
+    Equipo "*" o-- "*" Jugador : jugadores
 ```
 
 **Pasos**
 
 1. Crea la clase `Jugador` con `nombre` y `numero`, su constructor y sus getters.
-2. Crea la clase `Equipo` con `nombre` y una lista de jugadores (`ArrayList<Jugador>`).
+2. Crea la clase `Equipo` con `nombre`, una lista de jugadores (`ArrayList<Jugador>`) y su constructor `Equipo(String nombre)`.
 3. Escribe `agregarJugador(Jugador j)`: **recibe** el jugador ya creado y lo agrega a la lista.
 4. Escribe `mostrar()`: imprime `"<nombre> tiene N jugador(es)"`.
 5. En `Main`: crea **primero** dos jugadores (`new Jugador(...)`).
@@ -152,20 +167,24 @@ classDiagram
     class Proyecto {
         -String nombre
         -ArrayList~Empleado~ integrantes
-        +asignar(Empleado e)
-        +mostrar()
+        +Proyecto(String nombre)
+        +asignar(Empleado e) void
+        +mostrar() void
     }
     class Empleado {
         -String nombre
         -String cargo
+        +Empleado(String nombre, String cargo)
+        +getNombre() String
+        +getCargo() String
     }
-    Proyecto "*" o-- "*" Empleado
+    Proyecto "*" o-- "*" Empleado : integrantes
 ```
 
 **Pasos**
 
 1. Crea la clase `Empleado` con `nombre` y `cargo`, su constructor y sus getters.
-2. Crea la clase `Proyecto` con `nombre` y una lista `integrantes`.
+2. Crea la clase `Proyecto` con `nombre`, una lista `integrantes` y su constructor `Proyecto(String nombre)`.
 3. Escribe `asignar(Empleado e)`: agrega el empleado recibido a la lista.
 4. Escribe `mostrar()`: imprime el proyecto, la cantidad de integrantes y cada uno con su cargo.
 5. En `Main`: crea dos empleados y dos proyectos (`Web` y `App`).
@@ -201,20 +220,24 @@ classDiagram
     class Libro {
         -String titulo
         -ArrayList~Capitulo~ capitulos
-        +agregarCapitulo(String titulo)
-        +mostrar()
+        +Libro(String titulo)
+        +agregarCapitulo(String tituloCapitulo) void
+        +mostrar() void
     }
     class Capitulo {
         -int numero
         -String titulo
+        +Capitulo(int numero, String titulo)
+        +getNumero() int
+        +getTitulo() String
     }
-    Libro "1" *-- "1..*" Capitulo
+    Libro "1" *-- "1..*" Capitulo : capitulos
 ```
 
 **Pasos**
 
 1. Crea la clase `Capitulo` con `numero` (`int`) y `titulo`, su constructor y sus getters.
-2. Crea la clase `Libro` con `titulo` y una lista de capítulos.
+2. Crea la clase `Libro` con `titulo`, una lista de capítulos y su constructor `Libro(String titulo)`.
 3. Escribe `agregarCapitulo(String tituloCapitulo)`: recibe **solo el título** (no un `Capitulo`).
 4. Dentro de ese método calcula el número (`capitulos.size() + 1`) y haz **el `new Capitulo(...)`** ahí mismo.
 5. Escribe `mostrar()`: imprime el título del libro, la cantidad de capítulos y cada capítulo.
@@ -242,19 +265,23 @@ classDiagram
     class Videojuego {
         -String nombre
         -ArrayList~Nivel~ niveles
+        +Videojuego(String nombre, int cantidadNiveles)
         +puntosTotales() int
-        +mostrar()
+        +mostrar() void
     }
     class Nivel {
         -int numero
         -int puntosParaPasar
+        +Nivel(int numero)
+        +getNumero() int
+        +getPuntosParaPasar() int
     }
-    Videojuego "1" *-- "1..*" Nivel
+    Videojuego "1" *-- "1..*" Nivel : niveles
 ```
 
 **Pasos**
 
-1. Crea la clase `Nivel` con `numero` y `puntosParaPasar`. El constructor recibe solo el `numero` y calcula `puntosParaPasar = numero * 100`.
+1. Crea la clase `Nivel` con `numero` y `puntosParaPasar`. El constructor recibe solo el `numero` y calcula `puntosParaPasar = numero * 100`. Agrega sus getters.
 2. Crea la clase `Videojuego` con `nombre` y una lista de niveles.
 3. Escribe el constructor `Videojuego(String nombre, int cantidadNiveles)`.
 4. Dentro del constructor usa un `for` de `1` a `cantidadNiveles` y haz `niveles.add(new Nivel(i));`.
