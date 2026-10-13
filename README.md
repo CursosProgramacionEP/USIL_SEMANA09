@@ -160,7 +160,7 @@ classDiagram
 
 ### Ejercicio01 · `Biblioteca` – `Libro`
 
-En amarillo mental: lo que ya está escrito es `Libro` y el esqueleto de `Biblioteca`; tú completas el atributo `libros`, su creación y los métodos `agregarLibro` y `listarLibros`.
+`Libro` ya está escrito y `Biblioteca` es un esqueleto: tú completas el atributo `libros`, su creación y los métodos `agregarLibro` y `listarLibros`. El diagrama es el diseño final que debes lograr.
 
 ```mermaid
 classDiagram
@@ -183,7 +183,7 @@ classDiagram
 
 ### Ejercicio02 · `Estudiante` – `Curso` (0 a 8)
 
-Un estudiante cursa de 0 a 8 cursos: la lista debe rechazar el curso número 9.
+Un estudiante cursa de 0 a 8 cursos: `inscribir` devuelve `false` al intentar el curso número 9.
 
 ```mermaid
 classDiagram
@@ -201,6 +201,8 @@ classDiagram
     }
     Estudiante "*" --> "0..8" Curso : cursa
 ```
+
+> `Ejercicio02` no compila hasta que escribas `inscribir` y `mostrarCursos`: es lo esperado.
 
 ### Ejercicio03 · Caso Blog
 
@@ -226,7 +228,5 @@ classDiagram
         -String fecha
     }
 ```
-
-> `Ejercicio02` y `Ejercicio03` no compilan hasta que completes lo que piden los `TODO`: es lo esperado.
 
 **Pista para decidir entre agregación y composición:** ¿qué pasa con la parte cuando desaparece el todo? ¿Dónde está el `new`?
